@@ -1,0 +1,15 @@
+<h3>Aimeriez-vous publier ce Blog ?</h3>
+ <%= form_with(model: @blog, url: blogs_path, local: true, method: "post") do |form| %>
+ <p>
+   <strong>Title:</strong>
+   <%= @blog.title %>
+   <%= form.hidden_field :title %>
+ </p>
+ <p>
+   <strong>Description:</strong>
+   <%= @blog.description %>
+   <%= form.hidden_field :description %>
+ </p>
+ <%= form.submit "PUBLIER" %>
+ <%= form.submit "RETOUR", name: 'Back' %>
+<% end %>
