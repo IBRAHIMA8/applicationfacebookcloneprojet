@@ -6,7 +6,7 @@ skip_before_action :login_required, only: [:new, :create]
     user = User.find_by(email: params[:session][:email].downcase)
       if user && user.authenticate(params[:session][:password])
         session[:user_id] = user.id
-     redirect_to blog_path(user.id)
+     redirect_to blogs_path
       else
         flash.now[:danger] = 'adresse e-mail ou mot de passe incorrect'
       render :new
